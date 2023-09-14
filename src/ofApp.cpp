@@ -31,22 +31,17 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-	if (key == OF_KEY_RETURN) {
+	if (key == OF_KEY_RETURN){
 		if (!thread.isThreadRunning()){
 			thread.prompt = prompt;
 			thread.startThread();
 		}
-	}
-	else {
-		if (key == 8 && prompt.size() > 0) {
-			prompt = prompt.substr(0, prompt.size() - 1);
-		}
-		else if (key == 127) {
-			prompt  = "";
-		}
-		else if (prompt.size() < 80) {
-			prompt.append(1, (char)key);
-		}
+	} else if (key == 8 && prompt.size() > 0){
+		prompt = prompt.substr(0, prompt.size() - 1);
+	} else if (key == 127){
+		prompt  = "";
+	} else if (prompt.size() < 50) {
+		prompt.append(1, (char)key);
 	}
 }
 
